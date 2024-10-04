@@ -18,7 +18,7 @@ def menu():
 def criar_usuario(usuarios):
     cpf = input("Informe o CPF (somente números): ")
     if any(usuario['cpf'] == cpf for usuario in usuarios):
-        print("\n@@@ Já existe um usuário com esse CPF! @@@")
+        print("\n!!! Já existe um usuário com esse CPF! !!!")
         return
 
     nome = input("Informe o nome completo: ")
@@ -26,16 +26,16 @@ def criar_usuario(usuarios):
     endereco = input("Informe o endereço (logradouro, nro - bairro - cidade/sigla estado): ")
 
     usuarios.append({"nome": nome, "data_nascimento": data_nascimento, "cpf": cpf, "endereco": endereco})
-    print("=== Usuário criado com sucesso! ===")
+    print(" Usuário criado com sucesso! ")
 
 def criar_conta(agencia, numero_conta, usuarios):
     cpf = input("Informe o CPF do usuário: ")
     usuario = next((user for user in usuarios if user["cpf"] == cpf), None)
 
     if usuario:
-        print("\n=== Conta criada com sucesso! ===")
+        print("\n Conta criada com sucesso! ")
         return {"agencia": agencia, "numero_conta": numero_conta, "usuario": usuario}
-    print("\n@@@ Usuário não encontrado, fluxo de criação de conta encerrado! @@@")
+    print("\n!!! Usuário não encontrado, fluxo de criação de conta encerrado! !!!")
 
 def listar_contas(contas):
     for conta in contas:
